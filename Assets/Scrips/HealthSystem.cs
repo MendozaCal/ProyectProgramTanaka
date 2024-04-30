@@ -22,14 +22,6 @@ public class HealthSystem : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        /*if (collision.gameObject.CompareTag("damageEnemyBullet1"))
-        {
-            health -= damageEnemyBullet1;
-        }
-        if (collision.gameObject.CompareTag("damageEnemyBullet2"))
-        {
-            health -= damageEnemyBullet2;
-        }*/
         if (collision.gameObject.CompareTag("damageSuicideEnemy"))
         {
             health -= damageSuicideEnemy;
@@ -42,6 +34,14 @@ public class HealthSystem : MonoBehaviour
             health += healthItem;
             HealthItem.SetActive(false);
             StartCoroutine(ActiveHealth());
+        }
+        if (other.gameObject.CompareTag("damageEnemyBullet1"))
+        {
+            health -= damageEnemyBullet1;
+        }
+        if (other.gameObject.CompareTag("damageEnemyBullet2"))
+        {
+            health -= damageEnemyBullet2;
         }
     }
     IEnumerator ActiveHealth()

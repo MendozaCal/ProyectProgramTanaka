@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     private Vector3 direction;
     float timeBullet = 0;
-    SystemHealthEnemy Enemy;
-
     void Awake()
     {
         rb = GetComponent<Rigidbody>();

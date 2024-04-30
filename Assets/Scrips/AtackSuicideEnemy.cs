@@ -7,13 +7,10 @@ public class AtackSuicideEnemy : MonoBehaviour
     public Transform Player;
     public float speed = 5;
     public float distanceAtack = 20;
-    void Start()
-    {
-        
-    }
+    public HealthSystem healthSystem;
     void Update()
     {
-        if (Vector3.Distance(transform.position, Player.position) <= distanceAtack)
+        if (Player != null && Vector3.Distance(transform.position, Player.position) <= distanceAtack)
         {
             MoveEnemy();
         }

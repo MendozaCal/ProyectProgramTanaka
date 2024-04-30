@@ -11,6 +11,8 @@ TagManager:
   - damageSuicideEnemy
   - Bullet1
   - Bullet2
+  - damageEnemyBullet2
+  - damageEnemyBullet1
   layers:
   - Default
   - TransparentFX
