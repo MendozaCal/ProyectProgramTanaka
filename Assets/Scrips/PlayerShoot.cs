@@ -5,16 +5,22 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject prefab2;
     [SerializeField] private Transform shootPoint;
-    public int contBullet = 20;
-    int inicialBullet;
+    [SerializeField] private Transform shootPoint2;
+    public int contBullet1 = 20;
+    public int contBullet2 = 10;
+    int inicialBullet1;
+    int inicialBullet2;
     private void Start()
     {
-        inicialBullet = contBullet;
+        inicialBullet1 = contBullet1;
+        inicialBullet2 = contBullet2;
     }
     void Update()
     {
-        contBullet = Mathf.Max(contBullet, 0);
+        contBullet1 = Mathf.Max(contBullet1, 0);
+        contBullet2 = Mathf.Max(contBullet2, 0);
         Shoot();
     }
 
@@ -22,10 +28,20 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            contBullet--;
-            if(contBullet >= 0)
+            contBullet1--;
+            if(contBullet1 >= 0)
             {
                 GameObject obj = Instantiate(prefab);
+                obj.transform.position = shootPoint.position;
+                obj.GetComponent<Bullet>().SetDirection(shootPoint.forward);
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            contBullet2--;
+            if (contBullet1 >= 0)
+            {
+                GameObject obj = Instantiate(prefab2);
                 obj.transform.position = shootPoint.position;
                 obj.GetComponent<Bullet>().SetDirection(shootPoint.forward);
             }
@@ -33,9 +49,13 @@ public class PlayerShoot : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bullets"))
+        if (other.gameObject.CompareTag("Bullets1"))
         {
-            contBullet = inicialBullet;
+            contBullet1 = inicialBullet1;
+        }
+        if (other.gameObject.CompareTag("Bullets2"))
+        {
+            contBullet2 = inicialBullet2;
         }
     }
 }
