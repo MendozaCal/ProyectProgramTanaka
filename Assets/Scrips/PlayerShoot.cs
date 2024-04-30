@@ -12,6 +12,8 @@ public class PlayerShoot : MonoBehaviour
     public int contBullet2 = 10;
     int inicialBullet1;
     int inicialBullet2;
+    public GameObject Bullet1;
+    public GameObject Bullet2;
     private void Start()
     {
         inicialBullet1 = contBullet1;
@@ -39,7 +41,7 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             contBullet2--;
-            if (contBullet1 >= 0)
+            if (contBullet2 >= 0)
             {
                 GameObject obj = Instantiate(prefab2);
                 obj.transform.position = shootPoint.position;
@@ -52,10 +54,20 @@ public class PlayerShoot : MonoBehaviour
         if (other.gameObject.CompareTag("Bullets1"))
         {
             contBullet1 = inicialBullet1;
+            Bullet1.SetActive(false);
+            StartCoroutine(BulletsItem(Bullet1));
         }
         if (other.gameObject.CompareTag("Bullets2"))
         {
             contBullet2 = inicialBullet2;
+            Bullet2.SetActive(false);
+            StartCoroutine(BulletsItem(Bullet2));
         }
     }
+    IEnumerator BulletsItem(GameObject item)
+    {
+        yield return new WaitForSeconds(5);
+        item.SetActive(true);
+    }
 }
+
