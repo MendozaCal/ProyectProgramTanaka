@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float maxSpeed = 15;
+    public float rotationSpeed = 45;
     private Rigidbody rb;
     private void Awake()
     {
@@ -16,9 +17,13 @@ public class PlayerMove : MonoBehaviour
     }
     void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        transform.Rotate(0, horizontal * Time.deltaTime * 90, 0);
-        rb.velocity = new Vector3(transform.forward.x * vertical * speed, rb.velocity.y, transform.forward.z * vertical * speed);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * maxSpeed * Time.deltaTime;
+        Quaternion rotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.deltaTime, 0);
+
+        rb.MovePosition(transform.position + transform.TransformDirection(movement));
+        rb.MoveRotation(rb.rotation * rotation);
     }
 }

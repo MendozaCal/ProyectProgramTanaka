@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float speed;
     private Vector3 direction;
+    float timeBullet = 0;
 
     void Awake()
     {
@@ -21,5 +23,14 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         rb.velocity = direction * speed;
+        TimeToDestroy();
+    }
+    void TimeToDestroy()
+    {
+        timeBullet += Time.deltaTime;
+        if (timeBullet >= 5)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
