@@ -20,21 +20,21 @@ public class HealthSystem : MonoBehaviour
             Destroy(gameObject);
         }        
     }
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("damageEnemyBullet1"))
+        /*if (collision.gameObject.CompareTag("damageEnemyBullet1"))
         {
             health -= damageEnemyBullet1;
         }
         if (collision.gameObject.CompareTag("damageEnemyBullet2"))
         {
             health -= damageEnemyBullet2;
-        }
+        }*/
         if (collision.gameObject.CompareTag("damageSuicideEnemy"))
         {
             health -= damageSuicideEnemy;
         }
-    }*/
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("HealthItem"))
