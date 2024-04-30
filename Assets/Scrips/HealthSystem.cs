@@ -13,6 +13,8 @@ public class HealthSystem : MonoBehaviour
 
     void Update()
     {
+        health = Mathf.Max(health, 0);
+        health = Mathf.Min(health, 100);
         if (health <= 0)
         {
             Destroy(gameObject);
