@@ -8,6 +8,10 @@ public class AtackSuicideEnemy : MonoBehaviour
     public float speed = 5;
     public float distanceAtack = 20;
     public HealthSystem healthSystem;
+    private void Start()
+    {
+        Player = GameObject.FindWithTag("Player").transform;
+    }
     void Update()
     {
         if (Player != null && Vector3.Distance(transform.position, Player.position) <= distanceAtack)
