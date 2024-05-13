@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveEnemy : MoveController
 {
-    [SerializeField] protected float distanceAtack = 20;
-    public HealthSystem healthSystem;
     protected override void Move()
     {
         if (Player != null && Vector3.Distance(transform.position, Player.position) <= distanceAtack)

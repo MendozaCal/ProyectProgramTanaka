@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2151340124233470714}
   - component: {fileID: 90384417192350257}
   - component: {fileID: 4966548934279909831}
-  - component: {fileID: 3445610273198556436}
+  - component: {fileID: 1299143107042521446}
+  - component: {fileID: 6045311494204375619}
   m_Layer: 0
   m_Name: RangeEnemy (1)
   m_TagString: Untagged
@@ -136,7 +137,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &4966548934279909831
 MonoBehaviour:
@@ -151,7 +152,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthEnemy: 100
---- !u!114 &3445610273198556436
+--- !u!114 &1299143107042521446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740308644273100182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a32c916434a1c41be4dbdc8987d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 15
+  prefab: {fileID: 5065776217691814207, guid: 9e66e63530fc114438cd86ea214814d8, type: 3}
+  shootPoint: {fileID: 2925609463536644595}
+--- !u!114 &6045311494204375619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,11 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e32c5c021206a458bcbe9fc79b9fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
-  distanceAtack: 20
-  healthSystem: {fileID: 0}
-  prefab: {fileID: 5065776217691814207, guid: 9e66e63530fc114438cd86ea214814d8, type: 3}
-  shootPoint: {fileID: 2925609463536644595}
+  maxSpeed: 15
 --- !u!1 &7879266767663253933
 GameObject:
   m_ObjectHideFlags: 0
