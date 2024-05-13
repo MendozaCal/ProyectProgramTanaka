@@ -16,7 +16,7 @@ public class SystemHealthEnemy : Health
                 int randomIndex = Random.Range(0, prefapItems.Length);
                 Instantiate(prefapItems[randomIndex], transform.position, Quaternion.identity);
             }
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
     private void OnTriggerEnter(Collider other)

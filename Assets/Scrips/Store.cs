@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected int coin = 0;
+    [SerializeField] protected int coinValor = 20;
+    private void Update()
     {
-        
+        coin = Mathf.Max(0, coin);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            coin += coinValor;
+            Destroy(this.gameObject);
+        }
     }
 }

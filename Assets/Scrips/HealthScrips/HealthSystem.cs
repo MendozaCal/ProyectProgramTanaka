@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthSystem : Health
@@ -31,8 +32,7 @@ public class HealthSystem : Health
         if (other.gameObject.CompareTag("HealthItem"))
         {
             health += healthItem;
-            HealthItem.SetActive(false);
-            StartCoroutine(ActiveHealth());
+            HealthItem.IsDestroyed();
         }
         if (other.gameObject.CompareTag("damageEnemyBullet1"))
         {
@@ -42,10 +42,5 @@ public class HealthSystem : Health
         {
             health -= damageEnemyBullet2;
         }
-    }
-    IEnumerator ActiveHealth()
-    {
-        yield return new WaitForSeconds(5);
-        HealthItem.SetActive(true);
     }
 }

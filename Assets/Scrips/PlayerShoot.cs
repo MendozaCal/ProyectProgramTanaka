@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
@@ -54,20 +55,13 @@ public class PlayerShoot : MonoBehaviour
         if (other.gameObject.CompareTag("Bullets1"))
         {
             contBullet1 = inicialBullet1;
-            Bullet1.SetActive(false);
-            StartCoroutine(BulletsItem(Bullet1));
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Bullets2"))
         {
             contBullet2 = inicialBullet2;
-            Bullet2.SetActive(false);
-            StartCoroutine(BulletsItem(Bullet2));
+            Destroy(other.gameObject);
         }
-    }
-    IEnumerator BulletsItem(GameObject item)
-    {
-        yield return new WaitForSeconds(5);
-        item.SetActive(true);
     }
 }
 
