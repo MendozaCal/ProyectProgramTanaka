@@ -150,9 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a32c916434a1c41be4dbdc8987d35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  speed: 3
+  maxSpeed: 5
   distanceAtack: 20
+  healthSystem: {fileID: 0}
   prefab: {fileID: 5065776217691814207, guid: 9e66e63530fc114438cd86ea214814d8, type: 3}
   shootPoint: {fileID: 2925609463536644595}
 --- !u!114 &4966548934279909831

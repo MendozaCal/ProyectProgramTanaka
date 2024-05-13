@@ -149,8 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50dd79486fe27d41a36acb16e0c4db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  speed: 5
+  maxSpeed: 5
   distanceAtack: 20
   healthSystem: {fileID: 0}
 --- !u!114 &8455741826467776818

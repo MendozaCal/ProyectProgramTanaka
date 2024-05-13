@@ -2,20 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MoveController
 {
-    public float maxSpeed = 15;
-    public float rotationSpeed = 45;
-    private Rigidbody rb;
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
-        Move();
-    }
-    void Move()
+    [SerializeField] protected float rotationSpeed;
+    protected override void Move()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -24,6 +14,7 @@ public class PlayerMove : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.deltaTime, 0);
 
         rb.MovePosition(transform.position + transform.TransformDirection(movement));
-        rb.MoveRotation(rb.rotation * rotation);
+        rb.MoveRotation(rb.rotation * rotation); 
     }
+
 }
