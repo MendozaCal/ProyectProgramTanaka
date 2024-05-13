@@ -6,8 +6,12 @@ public class AtackRangeEnemy : MoveEnemy
 {
     [SerializeField] protected GameObject prefab;
     [SerializeField] protected Transform shootPoint;
-    float cont;
+    protected float cont;
     void Update()
+    {
+        Aim();
+    }
+    protected virtual void Aim()
     {
         if (Player != null && Vector3.Distance(transform.position, Player.position) <= distanceAtack)
         {
@@ -17,21 +21,13 @@ public class AtackRangeEnemy : MoveEnemy
                 ShootEnemy();
                 cont = 0;
             }
-            Move();
         }
     }
-    void ShootEnemy()
+    public void ShootEnemy()
     {
         transform.LookAt(Player.position);
         GameObject obj = Instantiate(prefab);
         obj.transform.position = shootPoint.position;
         obj.GetComponent<Bullet>().SetDirection(shootPoint.forward);
-    }
-    protected override void Move()
-    {
-        Vector3 direction = Player.position - transform.position;
-        direction.Normalize();
-        transform.position += direction * maxSpeed * Time.deltaTime;
-        transform.LookAt(Player.position);
     }
 }
