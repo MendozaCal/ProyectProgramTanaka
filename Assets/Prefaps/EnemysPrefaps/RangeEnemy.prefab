@@ -196,4 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5214b333151484d9588f5d71c15813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEnemy: 100
+  health: 100
+  prefapItems:
+  - {fileID: 2682077848816161378, guid: fa6438730a0861e4ea9be8cc6f061094, type: 3}
+  - {fileID: 6858556034786561522, guid: 580cc735ce044d64ab476762d35de875, type: 3}
+  - {fileID: 8586265760104504394, guid: c15461c7a4f64fa4bb2aecdd12c13538, type: 3}

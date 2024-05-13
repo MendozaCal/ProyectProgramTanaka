@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : Health
 {
-    public int health = 100;
     public int damageEnemyBullet1 = 10;
     public int damageEnemyBullet2 = 20;
     public int damageSuicideEnemy = 50;
