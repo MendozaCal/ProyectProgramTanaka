@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveEnemyBigBullet : MoveEnemy
+public class MoveEnemyBigBullet : MoveController
 {
     protected override void Move()
     {
-        if (Player != null && Vector3.Distance(transform.position, Player.position) <= distanceAtack)
+        if (Player != null && Vector3.Distance(transform.position, Player.position) >= distanceAtack)
         {
             Vector3 direction = Player.position - transform.position;
             direction.Normalize(); 
@@ -16,6 +16,5 @@ public class MoveEnemyBigBullet : MoveEnemy
 
             transform.position += separation * maxSpeed * Time.deltaTime;
         }
-            transform.LookAt(Player.position);
     }
 }

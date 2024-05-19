@@ -6,7 +6,7 @@ public class MoveEnemy : MoveController
 {
     protected override void Move()
     {
-        if (Player != null && Vector3.Distance(transform.position, Player.position) <= distanceAtack)
+        if (Player != null && Vector3.Distance(transform.position, Player.position) >= distanceAtack)
         {
             Vector3 direction = Player.position - transform.position;
             direction.Normalize();

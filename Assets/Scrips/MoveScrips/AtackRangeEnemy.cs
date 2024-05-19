@@ -10,6 +10,7 @@ public class AtackRangeEnemy : MoveEnemy
     void Update()
     {
         Aim();
+        Move();
     }
     protected virtual void Aim()
     {

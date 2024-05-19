@@ -13,6 +13,7 @@ TagManager:
   - Bullet2
   - damageEnemyBullet2
   - damageEnemyBullet1
+  - Coin
   layers:
   - Default
   - TransparentFX
