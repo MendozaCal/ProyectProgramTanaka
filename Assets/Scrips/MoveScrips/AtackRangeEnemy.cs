@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtackRangeEnemy : MoveEnemy
+public class AtackRangeEnemy : MoveController
 {
     [SerializeField] protected GameObject prefab;
     [SerializeField] protected Transform shootPoint;
@@ -30,5 +30,15 @@ public class AtackRangeEnemy : MoveEnemy
         GameObject obj = Instantiate(prefab);
         obj.transform.position = shootPoint.position;
         obj.GetComponent<Bullet>().SetDirection(shootPoint.forward);
+    }
+    protected override void Move()
+    {
+        if (Player != null && Vector3.Distance(transform.position, Player.position) >= distanceAtack)
+        {
+            Vector3 direction = Player.position - transform.position;
+            direction.Normalize();
+            transform.position += direction * maxSpeed * Time.deltaTime;
+            transform.LookAt(Player.position);
+        }
     }
 }
